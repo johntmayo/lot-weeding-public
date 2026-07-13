@@ -55,19 +55,38 @@
         var(--porcelain);
       background-size: 28px 28px;
     }
-    body::before {
-      content: "";
+    .brand-rail {
       position: fixed;
-      inset: 0 auto 0 0;
-      width: 88px;
+      inset: 0 auto 0;
+      width: 240px;
+      padding: 24px 22px;
       background: var(--deep-space-blue);
       border-right: 3px solid var(--text-primary);
-      z-index: -1;
+      z-index: 0;
+    }
+    .brand-logo {
+      display: block;
+      padding: 10px;
+      background: var(--floral-white);
+      border: 2px solid var(--text-primary);
+      box-shadow: 4px 4px 0 rgba(31,41,55,.34);
+    }
+    .brand-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
     }
     button, input, select { font: inherit; }
     button { cursor: pointer; }
     :focus-visible { outline: 3px solid var(--golden-orange); outline-offset: 2px; }
-    .shell { width: min(1500px, calc(100% - 136px)); margin: 0 auto; padding: var(--space-3) 0 42px; }
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(1500px, calc(100% - 292px));
+      margin: 0 24px 0 264px;
+      padding: var(--space-3) 0 42px;
+    }
     .masthead {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -93,20 +112,6 @@
     }
     .freshness strong { display: block; margin-bottom: 3px; font-size: .72rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
     .freshness span { color: var(--text-secondary); font-size: .86rem; font-weight: 700; }
-    .nav-tabs { display: flex; gap: 0; margin-top: var(--space-3); border-bottom: 3px solid var(--deep-space-blue); }
-    .tab {
-      min-height: 40px;
-      padding: 10px 20px;
-      border: 0;
-      border-right: 1px solid var(--border-color);
-      background: transparent;
-      color: var(--deep-space-blue);
-      font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .tab.active { background: var(--deep-space-blue); color: white; }
     .toolbar {
       display: grid;
       grid-template-columns: minmax(220px, 1fr) auto;
@@ -170,20 +175,6 @@
     .legend { display: flex; flex-wrap: wrap; gap: 8px 14px; padding: 12px 16px; border-top: 2px solid var(--border-color); background: var(--floral-white-warm); color: var(--text-secondary); font-size: .78rem; font-weight: 900; letter-spacing: .02em; }
     .legend span { display: inline-flex; align-items: center; gap: 7px; }
     .dot { width: 13px; height: 13px; border: 2px solid var(--text-primary); border-radius: 999px; display: inline-block; }
-    .cal-tabs { display: flex; justify-content: flex-end; gap: 6px; margin-bottom: 12px; }
-    .mini-tab {
-      min-height: 32px;
-      padding: 7px 13px;
-      border: 1px solid var(--border-color);
-      border-radius: 999px;
-      background: white;
-      color: var(--deep-space-blue);
-      font-size: .72rem;
-      font-weight: 900;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-    .mini-tab.active { background: var(--deep-space-blue); color: white; border-color: var(--deep-space-blue); }
     .cal-top { display: grid; grid-template-columns: 38px 1fr 38px auto; gap: 8px; align-items: center; margin-bottom: 14px; }
     .cal-title { text-align: center; }
     .cal-title h3 { margin: 0; color: var(--deep-space-blue); font-size: 1.15rem; font-weight: 900; letter-spacing: -.02em; }
@@ -216,8 +207,8 @@
     .leaflet-popup-content-wrapper { border-radius: var(--radius-medium); border: 1px solid var(--border-color); }
     .leaflet-container { font-family: var(--font-ui); }
     @media (max-width: 900px) {
-      body::before { display: none; }
-      .shell { width: calc(100% - 32px); }
+      .brand-rail { display: none; }
+      .shell { width: calc(100% - 32px); margin: 0 auto; }
       .masthead, .layout, .toolbar { grid-template-columns: 1fr; }
       .stats { grid-template-columns: repeat(3, 1fr); }
       .freshness { min-width: 0; text-align: left; }
@@ -227,8 +218,6 @@
     @media (max-width: 720px) {
       .shell { width: calc(100% - 18px); padding-top: 10px; }
       .masthead, .pad, .toolbar { padding: 14px; }
-      .nav-tabs { overflow-x: auto; }
-      .tab { padding-inline: 14px; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       #map { min-height: 420px; }
       .head { display: block; }
@@ -242,25 +231,24 @@
   </style>
 </head>
 <body>
+  <aside class="brand-rail" aria-label="Altadena Talks Foundation">
+    <a class="brand-logo" href="https://np.altadenatalks.org/" target="_blank" rel="noopener noreferrer" aria-label="Open Altadena Talks Foundation in a new tab">
+      <img src="assets/c__Users_johnt_AppData_Roaming_Cursor_User_workspaceStorage_8995f29e68ff25f5e471319de03e3237_images_atf-logo-5582e542-fa6e-4266-ad47-9359528273f8.png" alt="Altadena Talks Foundation logo">
+    </a>
+  </aside>
   <main class="shell">
     <section class="masthead">
       <div>
         <p class="kicker">Neighbors helping neighbors</p>
-        <h1>Lot Weeding Command Center</h1>
-        <p class="hero-copy">See requests, schedule cleanings, and resolve issues.</p>
+        <h1>Community Lot Weeding Program</h1>
+        <p class="hero-copy">A project of Altadena Talks Foundation with help from community partners.</p>
       </div>
       <aside class="freshness">
         <strong>Source: public mirror</strong>
         <span id="freshnessText">Waiting for Google Sheets</span>
       </aside>
     </section>
-    <nav class="nav-tabs" aria-label="Dashboard sections">
-      <button class="tab active" type="button">Planner</button>
-      <button class="tab" type="button">Calendar</button>
-      <button class="tab" type="button">Follow-ups</button>
-      <button class="tab" type="button">Stats</button>
-      <button class="tab" type="button">Help</button>
-    </nav>
+    <section class="stats" id="stats"></section>
     <section class="toolbar" aria-label="Planner controls">
       <div class="filter-group">
         <label class="label" for="statusFilter">Show</label>
@@ -288,10 +276,6 @@
       </div>
       <aside class="panel">
         <div class="pad">
-          <div class="cal-tabs" aria-label="Side panel views">
-            <button class="mini-tab" type="button">Details</button>
-            <button class="mini-tab active" type="button">Calendar</button>
-          </div>
           <div class="head">
             <div><h2>Calendar</h2><p>Scheduled lots are grouped by work date.</p></div>
           </div>
@@ -307,7 +291,6 @@
         </div>
       </aside>
     </section>
-    <section class="stats" id="stats"></section>
     <section class="panel table-panel">
       <div class="pad">
         <div class="head"><div><h2>Public Request List</h2><p>Read-only rows from the public mirror sheet.</p></div></div>
