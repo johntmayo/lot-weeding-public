@@ -69,17 +69,22 @@
       z-index: 0;
     }
     .brand-logo {
-      display: block;
-      padding: 10px;
-      background: var(--floral-white);
+      display: grid;
+      place-items: center;
+      aspect-ratio: 1;
+      padding: 8px;
+      background: #ffffff;
       border: 2px solid var(--text-primary);
+      border-radius: 50%;
       box-shadow: 4px 4px 0 rgba(31,41,55,.34);
+      overflow: hidden;
     }
     .brand-logo img {
       display: block;
-      width: 100%;
-      height: auto;
+      width: 94%;
+      height: 94%;
       border-radius: 50%;
+      object-fit: contain;
     }
     .partner-mark {
       display: grid;
@@ -88,7 +93,7 @@
       margin-bottom: 8px;
       color: rgba(255,253,245,.74);
       font-family: var(--font-reading);
-      font-size: .86rem;
+      font-size: .68rem;
       font-style: italic;
       line-height: 1.35;
       text-align: center;
