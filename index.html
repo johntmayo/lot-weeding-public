@@ -62,6 +62,10 @@
       padding: 24px 22px;
       background: var(--deep-space-blue);
       border-right: 3px solid var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-5);
       z-index: 0;
     }
     .brand-logo {
@@ -76,6 +80,25 @@
       width: 100%;
       height: auto;
       border-radius: 50%;
+    }
+    .partner-mark {
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+      margin-bottom: 8px;
+      color: rgba(255,253,245,.74);
+      font-family: var(--font-reading);
+      font-size: .86rem;
+      font-style: italic;
+      line-height: 1.35;
+      text-align: center;
+    }
+    .partner-mark img {
+      display: block;
+      width: 112px;
+      max-width: 72%;
+      height: auto;
+      opacity: .58;
     }
     button, input, select { font: inherit; }
     button { cursor: pointer; }
@@ -233,8 +256,12 @@
 <body>
   <aside class="brand-rail" aria-label="Altadena Talks Foundation">
     <a class="brand-logo" href="https://np.altadenatalks.org/" target="_blank" rel="noopener noreferrer" aria-label="Open Altadena Talks Foundation in a new tab">
-      <img src="assets/c__Users_johnt_AppData_Roaming_Cursor_User_workspaceStorage_8995f29e68ff25f5e471319de03e3237_images_atf-logo-5582e542-fa6e-4266-ad47-9359528273f8.png" alt="Altadena Talks Foundation logo">
+      <img src="public/images/atf-logo.png" alt="Altadena Talks Foundation logo">
     </a>
+    <div class="partner-mark" aria-label="In partnership with Altagether">
+      <span>In partnership with Altagether Neighborhood Captains</span>
+      <img src="public/images/logo_white_transparent.png" alt="Altagether logo">
+    </div>
   </aside>
   <main class="shell">
     <section class="masthead">
